@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <%- include("../partials/cabecalho.ejs") %>
+    <title>Detalhes</title>
+    <link rel ="stylesheet"  href="/css/style.css"></link><!--tag para importar as coisas do css-->
+    <style>
+        table, th, td{border:1px solid black;}
+    </style>
+    <%- include("../partials/cabecalho.ejs") %> 
 </head>
 <body>
   
@@ -28,5 +32,5 @@
     </div>
   </div>
 </body>
-<footer><% include("../partials/rodape.ejs") %> </footer>
+<footer><%- include("../partials/rodape.ejs") %></footer><!--Rodape da pagina essa tag-->
 </html>

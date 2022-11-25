@@ -13,8 +13,8 @@
 </head>
 <body >
     <div class="container">
-        <h3 >Relatório de pessoas</h3>
-        <table class="table table-dark table-striped" tyle="width:100%, text-align: center;", >
+        <h3 >Lista de pessoas</h3>
+        <table class="table table-hover" tyle="width:100%, text-align: center;", >
         <tr>
             <th scope="col">Nome</th>
             <th scope="col">Codigo</th>
@@ -49,10 +49,10 @@
 
                 <div>
                     
-                    <td><a href="/pessoas/remover/<%=pessoa.codigo%>" onclick =" return confirm('Deseja realmente remover? não se esquece mais do sinal de igual anta, na proxima vvai perder quanto temp?')"> <button type="submit" class="btn btn-danger">Remover</button></a></td>
+                    <td><a href="/pessoas/remover/<%=pessoa.codigo%>" onclick =" return confirm('Deseja realmente remover?')"> <button type="submit" class="btn btn-danger">Remover</button></a></td>
                 </div>
                 <div>
-                    <td><a href="/pessoas/atualizar/<%=pessoa.codigo%>" onclick = "return confirm('Deseja atualizar o usuario <%=pessoa.nome%>')"><button type="submit" class="btn btn-warning">Atualizar</button></a></td>
+                    <td><a href="/pessoas/atualizar/<%=pessoa.codigo%>" onclick = "return confirm('Deseja atualizar o usuario <%=pessoa.nome%> ?')"><button type="submit" class="btn btn-warning">Atualizar</button></a></td>
                 </div>
             </tr>
             
