@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE PRODUTOS</title>
+    <link rel ="stylesheet"  href="/css/style.css"></link><!--tag para importar as coisas do css-->
+    <style>
+        table, th, td{border:1px solid black;}
+    </style>
+    <%- include("../partials/cabecalho.ejs") %> 
+</head>
+<body >
+    <div class="container">
+        <h3 >Relatório de produtos</h3>
+        <table class="table table-dark table-striped" tyle="width:100%, text-align: center;", >
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Plataforma</th>
+            <th scope="col">Detalhes</th>
+            <th scope ="col">Remover</th>
+            <th scope="col">Atualizar</th>
+        </tr>
+        <div> 
+        
+            <%for(let quebra= 0; quebra < produtos.length; quebra++){
+                const produto= produtos[quebra];%>
+                <tr>
+                <div>
+
+                <td><%=produto.nome%></td>
+                </div>
+                <div>
+                    <td><%=produto.codigo%></td>
+                </div>
+                <div>
+                    <td><%=produto.plataforma%></td>
+                </div>
+
+                <div>
+                    <td><a href="/produtos/<%=produto.codigo%>"><button type="submit" class="btn btn-primary">Detalhes</button></a></td>
+                </div>
+
+                <div>
+                    
+                    <td><a href="/produtos/remover/<%=produto.codigo%>" onclick =" return confirm(' ProdutoDeseja realmente remover? não se esquece mais do sinal de igual anta, na proxima vvai perder quanto temp?')"><button type="submit" class="btn btn-danger">Remover</button></a></td>
+                </div>
+                <div>
+                    <td><a href="/produtos/atualizar/<%=produto.codigo%>" onclick = "return confirm('Deseja atualizar o usuario <%=produto.nome%>')"><button type="submit" class="btn btn-warning">Atualizar</button></a></td>
+                </div>
+            </tr>
+            
+        <%}%>
+        </div>
+        </table>
+
+        <div>
+            <a href="/"> <button type="submit" class="btn btn-dark">Voltar</button></a>
+            
+        </div>
+    </div>
+    
+
+</body>
+<footer><%- include("../partials/rodape.ejs") %></footer><!--Rodape da pagina essa tag-->
+</html>

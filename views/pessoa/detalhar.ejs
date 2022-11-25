@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+  <br>
+  <div class="container">
+    <div class="card border-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Dados do Produto:</div>
+      <div class="card-body">
+        <% if (resultado != undefined){%><div>
+          Nome: <%=resultado.nome%>
+        </div>
+        <div>
+          Idade: <%=resultado.idade%>
+        </div>
+        <div>
+          Codigo: <%=resultado.codigo%>
+        </div>
+        <div>
+          E-mail: <%=resultado.email%>
+        </div>
+        <% if (resultado.nome=="Antônio"){%>
+              Você é foda
+          <%}%>
+      <%} else{%>indefinido<%}%>
+      <div>
+        <a href="/pessoas"><button type="submit" class="btn btn-outline-dark">Voltar</button></a>
+    </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+<footer><% include("../partials/rodape.ejs") %> </footer>
+</html>
+<!-- body{} no css é pra alterar algo no body, . faz uma função-->

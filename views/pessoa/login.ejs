@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs") %> 
+</head>
+<body>
+    <div class= "container">
+    <form action="/pessoas/login" method="post">
+        <div class="mb-3">
+            <!-- required no input faz ser obrigatorio preencher-->
+            <label  class="form-label">Email:</label>
+            <input type="text" class="form-control" required id="exampleInputPassword1" name="email">
+        </div>    
+        
+    
+        <div class="mb-3">
+            <label  class="form-label">Senha:</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="senha">
+        </div>   
+        <button type="submit" class="btn btn-dark">Entrar</button>
+    </form >
+    </div>
+    
+</body>
+<footer><%- include("../partials/rodape.ejs") %></footer>
+</html>

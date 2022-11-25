@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar produto</title>
+    <%- include("../partials/cabecalho.ejs") %> 
+</head>
+<body>
+    <div class= "container">
+        <h1>Atualizar produto</h1>
+        
+        <form action="/pessoas/atualizar/<%=resultado.codigo%>" method="post">
+            <div class="mb-3">
+                <!-- required no input faz ser obrigatorio preencher-->
+                <label  class="form-label">Nome:</label>
+                <input type="text" class="form-control" required id="exampleInputPassword1" name="nome" placeholder="<%=resultado.nome%>">
+            </div>    
+            <div class="mb-3">
+                <label  class="form-label">Plataforma:</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="idade" placeholder="<%=resultado.plataforma%>">
+            </div>   
+    
+            <div class="mb-3">
+                <label  class="form-label">Codigo:</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="codigo" placeholder="<%=resultado.codigo%>">
+            </div>   
+            <button type="submit" class="btn btn-dark">Salvar</button>
+                
+            </div>
+        </form >
+        <div>
+            <br>
+            <br>
+            <br>
+            
+        </div>
+        <!--<a href=""><button>oi</button></a>-->;
+    </div>
+</body>
+<footer><%- include("../partials/rodape.ejs") %></footer><!--Rodape da pagina essa tag-->
+</html>

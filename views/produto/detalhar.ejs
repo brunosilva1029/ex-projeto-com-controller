@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+  
+  <div class="container">
+    <% if (resultado != undefined){%><div>
+          Nome:<%=resultado.nome%>
+        </div>
+        <div>
+          Plataforma:<%=resultado.plataforma%>
+        </div>
+        <div>
+          Codigo:<%=resultado.codigo%>
+        </div>
+        <% if (resultado.nome=="Antônio"){%>
+              Você é foda
+          <%}%>
+      <%} else{%>indefinidoA<%}%>
+      <div>
+        <a href="/produtos"><button type="submit" class="btn btn-dark">Voltar</button></a>
+    </div>
+  </div>
+</body>
+<footer><% include("../partials/rodape.ejs") %> </footer>
+</html>
