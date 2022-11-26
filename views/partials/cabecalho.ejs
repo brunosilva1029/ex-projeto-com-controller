@@ -1,19 +1,7 @@
  <link rel ="stylesheet"  href="/css/bootstrap.min.css">
  <!--<nav class="navbar navbar-dark bg-dark">-->
    
- <!-- <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/pessoas/cadastrar">Cadastrar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/pessoas">Exibir cadastrados</a>
-          </li>
-          
-  </nav>-->
+ 
   
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -23,11 +11,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/pessoas/login">Login</a>
-          </li>
-          
-          
           
             
             <li class="nav-item dropdown">
@@ -35,11 +18,10 @@
                 Cliente
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/pessoas/cadastrar">Cadastrar</a></li>
                 <li><a class="dropdown-item" href="/pessoas">Listar</a></li>
 
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Relatório</a></li>
+                <li><a class="dropdown-item" href="/pessoas/relatorio" target="_blank">Relatório</a></li>
               </ul>
             </li>
 
@@ -52,14 +34,18 @@
                 <li><a class="dropdown-item" href="/produtos">Listar</a></li>
 
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Relatório</a></li>
+                <li><a class="dropdown-item" href="/produtos/relatorio" target="_blank">Relatório</a></li>
 
               </ul>
         
             </li>
 
         </ul>
-        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/pessoas/logout">Sair</a>
+          </li>
+        </ul>
 
       </div>
     </div>

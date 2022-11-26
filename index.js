@@ -5,6 +5,7 @@ const app = express();
 require('dotenv/config');
 
 
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static("public"));//para poder botar o caminho do arquivo /css/nomedoarquivo
@@ -17,7 +18,7 @@ app.use(session({
 
 const mongoose = require("mongoose");
 
-console.log(process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI);//conectando banco de dados com a url dada no site
 //vai representar o cliente 
 const clienteRoutes = require("./routes/clienteRoutes");
@@ -35,8 +36,8 @@ app.use(produtoRoutes);
 // pessoaList.push(pessoa3);
 // console.log(pessoaList);
 
-//const auth = require("/middlewares/clienteAuth");
-app.get("/", function(req, res){//parametros, requisição e resposta
+const auth = require("./middlewares/clienteAuth");
+app.get("/", auth, function(req, res){//parametros, requisição e resposta
     res.render("index");
 });//pagina inicial da aplicação
 
@@ -55,6 +56,7 @@ app.use(function(req, res){
 
 app.listen(process.env.PORT, function(){
     console.log("Servidor iniciado");
+    console.log(session.usuario)
 });
 
 

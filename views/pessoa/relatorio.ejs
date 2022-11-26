@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELATORIO DE PESSOAS</title>
+    <link rel ="stylesheet"  href="/css/style.css"></link><!--tag para importar as coisas do css-->
+    <style>
+        table, th, td{border:1px solid black;}
+    </style>
+    <link rel ="stylesheet"  href="/css/bootstrap.min.css">
+</head>
+<body >
+    <div class="container">
+        <h3 >Relatório de pessoas</h3>
+        <table class="table table-hover" tyle="width:100%, text-align: center;", >
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Email</th>
+        </tr>
+        <div> 
+        
+            <%for(let quebra= 0; quebra < pessoas.length; quebra++){
+                const pessoa= pessoas[quebra];%>
+                <tr>
+                <div>
+
+                <td><%=pessoa.nome%></td>
+                </div>
+                <div>
+                    <td><%=pessoa.codigo%></td>
+                </div>
+                <div>
+                    <td><%=pessoa.idade%></td>
+                </div>
+                <div>
+                    <td><%=pessoa.email%></td>
+                </div>
+
+            </tr>
+            
+        <%}%>
+        </div>
+        </table>
+
+    </div>
+    
+
+</body>
+
+</html>

@@ -23,7 +23,7 @@ class ProdutoController{
     
     static  async  cadastroGet(req, res){//parametros, requisição e resposta
             res.render( "produto/cadastrar");
-        }
+    }
 
     static  async listar(req, res){//parametros, requisição e resposta
             //console.log(pessoaList)
@@ -31,18 +31,13 @@ class ProdutoController{
             
            // res.render("produtos",{pessoaList});
             res.render( "produto/listar", {produtos});
-        } 
+    } 
+    static  async relatorio(req, res){
+            const produtos = await ProdutoModel.find();
+            res.render( "produto/relatorio", {produtos});
+    } 
 
     static  async remover(req, res){//parametros, requisição e resposta
-       console.log("    OIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-        //let codig = req.params.codigo;//pega o parametro do codigo 
-        //const resultado = 
-        //await ProdutoModel.findOneAndDelete({codigo:codig});
-        //const produtos = await ProdutoModel.find();
-        //res.render( "produto/listar", {produtos});
-        //res.redirect("/produtos");
-        //res.redirect("produtos");
-        console.log("    OIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         let codig = req.params.codigo;//pega o parametro do codigo 
         const resultado = await ProdutoModel.findOneAndDelete({codigo:codig});
         const pessoas = await ProdutoModel.find();

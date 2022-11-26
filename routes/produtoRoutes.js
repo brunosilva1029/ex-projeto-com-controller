@@ -9,6 +9,7 @@ routes.get("/produtos/cadastrar", auth, produtoController.cadastroGet);
 routes.post("/produtos", auth,  produtoController.cadastrarPost);
 
 routes.get("/produtos", auth,  produtoController.listar);
+routes.get("/produtos/relatorio", auth,  produtoController.relatorio);
 routes.get("/produtos/remover/:codigo", auth,  produtoController.remover);
 routes.get("/produtos/atualizar/:codigo", auth, produtoController.atualizarGet);
 routes.post("/produtos/atualizar/:codigo", auth, produtoController.atualizarPost);

@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <%- include("../partials/cabecalho.ejs") %> 
+    <link rel ="stylesheet"  href="/css/bootstrap.min.css">
 </head>
 <body>
     <div class= "container">
+        <h1>Login: </h1>
+        <% if (alerta != undefined){%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Email ou senha incorretos!</strong> Tente novamente.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <%} %>
     <form action="/pessoas/login" method="post">
         <div class="mb-3">
             <!-- required no input faz ser obrigatorio preencher-->
@@ -21,8 +28,8 @@
             <label  class="form-label">Senha:</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="senha">
         </div>  
-        <button type="submit" class="btn btn-dark">Entrar</button>
         <div> 
+            <button type="submit" class="btn btn-dark">Entrar</button>
             <a class="btn btn-primary" href="/pessoas/cadastrar">Cadastrar</a>
         </div>
     </form >

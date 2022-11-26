@@ -20,21 +20,30 @@ class ClienteController{
     };//carregamento da pagina detalhar com pessoa do codigo
 
     static async cadastrarPost(req, res){//parametros, requisição e resposta
-            const pessoa = req.body;
-           // const pessoaPront = new Pessoa(pessoa.nome, pessoa.idade, pessoa.codigo);
-           //pessoaList.push(pessoaPront);// tbm pode botar sem as duas primeiras linhas se der um push no obejto(no caso pessoa) diretamente
-           const salt = bcrypt.genSaltSync();
-           const hash = bcrypt.hashSync(pessoa.senha, salt)
+
+        const pessoa = req.body;
+        // const pessoaPront = new Pessoa(pessoa.nome, pessoa.idade, pessoa.codigo);
+        //pessoaList.push(pessoaPront);// tbm pode botar sem as duas primeiras linhas se der um push no obejto(no caso pessoa) diretamente
+
+        const pessoaTeste = await ClienteModel.findOne({email: pessoa.email});
+        if(pessoaTeste == undefined){
+
+            const salt = bcrypt.genSaltSync();
+            const hash = bcrypt.hashSync(pessoa.senha, salt)
             const novoCliente = new ClienteModel({codigo:pessoa.codigo, idade:pessoa.idade,nome:pessoa.nome, email: pessoa.email, senha: hash})
             await novoCliente.save(); //salvando no banco de dados
-            
-             res.redirect("pessoas");
+                
+            res.redirect("pessoas");
+        }else{
+            res.redirect("/pessoas/cadastrar/1");
+        }
 
-         }
+    }
     
     static  async  cadastroGet(req, res){//parametros, requisição e resposta
-            res.render("pessoa/cadastrar");
-        }
+        const alerta = req.params.a;
+        res.render("pessoa/cadastrar", {alerta});
+    }
 
     static  async listar(req, res){//parametros, requisição e resposta
             //console.log(pessoaList)
@@ -44,14 +53,27 @@ class ClienteController{
             res.render("pessoa/listar", {pessoas});
         } 
 
+    static  async relatorio(req, res){//parametros, requisição e resposta
+        //console.log(pessoaList)
+        const pessoas = await ClienteModel.find();
+            
+        // res.render("pessoas",{pessoaList});
+        res.render("pessoa/relatorio", {pessoas});
+    } 
+
     static  async remover(req, res){//parametros, requisição e resposta
-       console.log("    OIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         let codig = req.params.codigo;//pega o parametro do codigo 
         const resultado = await ClienteModel.findOneAndDelete({codigo:codig});
         const pessoas = await ClienteModel.find();
         res.render("pessoa/listar", {pessoas});
         //res.redirect("/pessoas");
     } 
+
+    
+    static  async fazerLogout(req, res){//parametros, requisição e resposta
+        req.session.destroy();
+        res.redirect("/pessoas/login")
+    }
 
     static async atualizarGet(req, res){
         let codig = req.params.codigo;
@@ -71,7 +93,8 @@ class ClienteController{
     }
 
     static async loginG(req, res){
-        res.render("pessoa/login");
+        const alerta = req.params.a;
+        res.render("pessoa/login", {alerta});
         
     }
 
@@ -103,20 +126,12 @@ class ClienteController{
             if(bcrypt.compareSync(cliente.senha, hash1)){
                 req.session.usuario = resultado.email;
                 res.redirect("/");
-            }else{res.redirect("/pessoas/login")}
-        }else{console.log("email nao cadastrado")}
+            }else{res.redirect("/pessoas/login/1")}
+        }else{res.redirect("/pessoas/login/1")}
     }
     
 
     
-    //static async sair(req, res){
-    //    console.log("entra");
-        //if(req.session.usuario){
-        //    req.session.usuario = !req.session.usuario;
-        //}
-        
-    //    res.redirect("/pessoas/login")
-    //}
 
 }
 module.exports = ClienteController;
